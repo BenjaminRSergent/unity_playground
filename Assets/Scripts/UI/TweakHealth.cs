@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class TweakHealth : MonoBehaviour {
-	float increaseChance = 0.01f;
-	float decreaseChance = 0.05f;
+	public float increaseChance = 0.01f;
+	public float decreaseChance = 0.03f;
 	float changeAmountMax = 20;
 	private ScoreTestGlobalState _state;
 	// Use this for initialization

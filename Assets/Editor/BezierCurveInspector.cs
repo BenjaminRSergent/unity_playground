@@ -18,7 +18,7 @@ public class BezierCurveInspector : UnityEditor.Editor {
 		Vector3 end = ShowPointHandles (3, rotation);	;
 
 
-		Handles.DrawBezier (start, middleA, middleB, end, Color.white, null, 2f);
+		Handles.DrawBezier (start, end, middleA, middleB, Color.white, null, 2f);
 	}
 
 	void ManualDraw () {
@@ -27,7 +27,6 @@ public class BezierCurveInspector : UnityEditor.Editor {
 			float percent = step / (float)(_stepsToShow - 1);
 			Vector3 end = _curve.GetPoint (percent);
 			Handles.DrawLine (start, end);
-
 			start = end;
 		}
 	}
