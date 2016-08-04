@@ -5,11 +5,9 @@ using System.Collections.Generic;
 // Moves the player on the x and z axises
 public class FpsMovement : MonoBehaviour {
     public float walkSpeed = 30.0f;
-	public float sprintSpeed = 50.0f;
 
 	private PlayerMover _mover;
 	private Camera _playerCamera;
-	private Vector3 _groundInputMovementDirection;
 	
 	void Start () {
 		_mover = GetComponent<PlayerMover> ();
@@ -28,7 +26,8 @@ public class FpsMovement : MonoBehaviour {
 		rightWithoutY.Normalize ();
 
 		// Set the desired movement direction based on player input and the forward/right directions.
-		_groundInputMovementDirection = (forwardWithoutY * Input.GetAxis ("Vertical") + rightWithoutY * Input.GetAxis ("Horizontal")).normalized;
+		Vector3 _groundInputMovementDirection = (forwardWithoutY * Input.GetAxis ("Vertical") + rightWithoutY * Input.GetAxis ("Horizontal")).normalized;
+
 		_mover.AddMovement (walkSpeed * _groundInputMovementDirection * Time.deltaTime);
 	}
 }
